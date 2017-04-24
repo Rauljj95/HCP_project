@@ -1,0 +1,11 @@
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\bin\Debug\PsicoteXt.exe
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\bin\Debug\PsicoteXt.pdb
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.csprojResolveAssemblyReference.cache
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormInicio.resources
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.Properties.Resources.resources
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.csproj.GenerateResource.Cache
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.exe
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.pdb
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormTest.resources
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormRespuesta.resources
+d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormTest2.resources
