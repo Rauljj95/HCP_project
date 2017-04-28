@@ -26,7 +26,6 @@ namespace PsicoteXt
             FormTest test = new FormTest();
             test.Show();
             this.Hide();
-            
         }
     }
 }

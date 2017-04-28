@@ -45,13 +45,19 @@ namespace PsicoteXt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormRespuesta respuesta = new FormRespuesta();
-            respuesta.Show();
+            FormCicloApren cicloApren = new FormCicloApren();
+            cicloApren.Show();
             this.Hide();
-            respuesta.SetEC(EC);
-            respuesta.SetEA(EA);
-            respuesta.SetOR(OR);
-            respuesta.SetCA(CA);
+            cicloApren.SetEC(EC);
+            cicloApren.SetEA(EA);
+            cicloApren.SetOR(OR);
+            cicloApren.SetCA(CA);
+            cicloApren.Prepare();
+        }
+
+        private void FormTest2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

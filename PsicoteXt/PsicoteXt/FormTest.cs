@@ -130,7 +130,6 @@ namespace PsicoteXt
             test2.SetEA(EA);
             test2.SetOR(OR);
             test2.SetCA(CA);
-            
         }
 
         private void FormTest_FormClosing(object sender, FormClosingEventArgs e)
@@ -145,6 +144,11 @@ namespace PsicoteXt
         private void FormTest_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void groupBox14_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
