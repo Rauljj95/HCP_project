@@ -16,16 +16,8 @@ namespace PsicoteXt
         private int CA; //Conceptualización Abstracta
         private int EA; //Experimentación Activa
         
-        private void ObtenerValores()
-        {
-            EC = 0;
-            OR = 0;
-            CA = 0;
-            EA = 0;
-            ObtenerEC();
-        }
 
-        private void ObtenerNumMarcado(GroupBox g, int caso)
+        private int ObtenerNumMarcado(GroupBox g, int caso)
         {
             bool hayMarcado = false; //Si es falso al final, lanzar exepción, de que no hay marcado
             foreach (RadioButton radioB in g.Controls) //Recorriendo los 4 GroupBox de cada Panel
@@ -38,54 +30,56 @@ namespace PsicoteXt
                     switch (caso)
                     {
                         case 1:
-                            EC += num; break;
+                            EC += num; return num;
                         case 2:
-                            OR += num; break;
+                            OR += num; return num;
                         case 3:
-                            CA += num; break;
+                            CA += num; return num;
                         case 4:
-                            EA += num; break;
+                            EA += num; return num;
                     }
                 }
             }
+            if (!hayMarcado)
+            {
+                SinMarcarException SMEx = new SinMarcarException("Existen respuestas sin marcar");
+                throw SMEx;
+            }
+                
+            return 0;
         }
 
 
-        private void ObtenerEC()
+        private void ObtenerValoresEstilos()
         {
-            foreach (Control posPaneles in this.flowLayoutPanel1.Controls) //Recorriendo los 6 paneles Principales
+            MismaPrioridadException MPEx;
+            int filaActual = 0;
+            foreach (Control posiblesPaneles in this.flowLayoutPanel1.Controls) //Recorriendo los 6 paneles Principales
             {
-                if (posPaneles is Panel)
+                if (posiblesPaneles is Panel)
                 {
+                    filaActual++;
                     int grupoActual = 0;
+                    bool[] valoresSinUsar = {true, true, true, true};
 
-                    foreach (Control posGroupBox in posPaneles.Controls) //Recorriendo los 4 GroupBox de cada Panel
+                    foreach (Control posiblesGroupBox in posiblesPaneles.Controls) //Recorriendo los 4 GroupBox de cada Panel
                     {
                         GroupBox grupo;
-                        if (posGroupBox is GroupBox)
+                        if (posiblesGroupBox is GroupBox)
                         {
-                            grupo = (GroupBox)posGroupBox;
+                            grupo = (GroupBox)posiblesGroupBox;
                             grupoActual++;
-                            ObtenerNumMarcado(grupo, grupoActual);
+                            int aux = ObtenerNumMarcado(grupo, grupoActual);
+                            if (valoresSinUsar[aux - 1])
+                                valoresSinUsar[aux - 1] = false;
+                            else
+                            {
+                                MPEx = new MismaPrioridadException("Exiten en la pregunta "+filaActual+", respuestas marcadas con la misma prioridad");
+                                throw MPEx;
+                            }
+                                
                         }
-
-                        //if (radioB.Checked)
-                        //{
-                        //    String num = radioB.Text;
-                        //    EC += Int32.Parse(num);
-                        //}
                     }
-                    //foreach(Control gr in this.flowLayoutPanel1.Controls)
-
-                    //elemento.GetChildAtPoint(1)
-
-                    //if (elemento is GroupBox)
-                    //{ 
-                    //}
-                    //foreach (RadioButton radioB in elemento.Controls)
-                    //{
-                    //    
-                    //}
                 }
             }
         }
@@ -122,14 +116,25 @@ namespace PsicoteXt
 
         private void buttonNextTest_Click(object sender, EventArgs e)
         {
-            FormTest2 test2 = new FormTest2();
-            this.Hide();
-            ObtenerEC();
-            test2.Show();
-            test2.SetEC(EC);
-            test2.SetEA(EA);
-            test2.SetOR(OR);
-            test2.SetCA(CA);
+            try
+            {
+                ObtenerValoresEstilos();
+                FormTest2 test2 = new FormTest2();
+                this.Hide();
+                test2.Show();
+                test2.SetEC(EC);
+                test2.SetEA(EA);
+                test2.SetOR(OR);
+                test2.SetCA(CA);
+            }
+            catch (MismaPrioridadException ex)
+            {
+                MessageBox.Show(ex.getMensaje(), "Incorrecto",MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
+            catch (SinMarcarException ex)
+            {
+                MessageBox.Show(ex.getMensaje(), "Incorrecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+            }
         }
 
         private void FormTest_FormClosing(object sender, FormClosingEventArgs e)
