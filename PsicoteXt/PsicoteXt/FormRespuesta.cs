@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PsicoteXt
 {
     public partial class FormRespuesta : Form
     {
         private int estiloApren; // 1.divergente, 2.adaptador, 3.convergente, 4.asimilador
-
+        private Preguntas listaPreguntas;
         private int EC; //Experiencia Concreta
         private int OR; //Observación Reflexiva
         private int CA; //Conceptualización Abstracta
@@ -21,7 +22,7 @@ namespace PsicoteXt
         private int x;
         private int y;
 
-        enum estilo {Divergente,Adaptador,Convergente,Asimilador};
+        enum estilo {Divergente = 1,Adaptador,Convergente,Asimilador};
 
         //Métodos Set-------------------------------------------
         public void SetEC(int EC)
@@ -54,9 +55,9 @@ namespace PsicoteXt
             else
                 return (int)estilo.Asimilador;
         }
-        private string GetEstiloNombre(int aux)
+        private string GetEstiloNombre()
         {
-            switch (aux)
+            switch (estiloApren)
             {
                 case (int)estilo.Divergente: return "Divergente";
                 case (int)estilo.Convergente: return "Convergente";
@@ -65,17 +66,7 @@ namespace PsicoteXt
             }
             return "";
         }
-        private string GetEstiloDescripcion(int aux)
-        {
-            switch (aux)
-            {
-                case (int)estilo.Divergente: return "Divergente";
-                case (int)estilo.Convergente: return "Convergente";
-                case (int)estilo.Asimilador: return "Asimilador";
-                case (int)estilo.Adaptador: return "Adaptador";
-            }
-            return "";
-        }
+        
         //----------------------------------------------------------------------------
 
         //Métodos Que Escriben en Pantalla----------------------
@@ -83,32 +74,41 @@ namespace PsicoteXt
         {
             x = EA - OR;
             y = CA - EC;
-            int estiloAprend = CalcularEstilo();
-            this.label1.Text = GetEstiloNombre(estiloAprend);
-        }
-        private String TextoEstilo()
-        {
-            switch (estiloApren)
+            estiloApren = CalcularEstilo();
+            this.label1.Text = GetEstiloNombre();
+
+            string path = Directory.GetCurrentDirectory();
+            try
             {
-                case 1:
-                    return " ";
-                case 2:
-                    return " ";
-                case 3:
-                    return " ";
-                case 4:
-                    return " ";
-                default:
-                    return " ";
+                FileStream fichero = new FileStream(@path + "\\" + GetEstiloNombre() +".txt", FileMode.Open, FileAccess.Read);
+
+                
+                int restantes = (int)fichero.Length;
+               
+                byte[] nbytes = new byte[restantes];
+                fichero.Read(nbytes, 0, restantes);
+                
+
+                
+                label2.Text = Encoding.UTF8.GetString(nbytes);
+                fichero.Close();
+                listaPreguntas.EscribirFichero("respuestas.txt", GetEstiloNombre());
+            }
+            catch
+            {
+
             }
         }
+        
         //-------------------------------------------------------
 
 
         //Inicialización del Form------------------------
-        public FormRespuesta()
+        public FormRespuesta(Preguntas preguntasTest)
         {
             InitializeComponent();
+            listaPreguntas = new Preguntas();
+            listaPreguntas = preguntasTest;
         }
         //------------------------------------------------
 
@@ -116,6 +116,9 @@ namespace PsicoteXt
 
         private void buttonExitRespuesta_Click(object sender, EventArgs e)
         {
+           
+            
+         
             Application.Exit();
         }
 

@@ -10,3 +10,15 @@ d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Deb
 d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormRespuesta.resources
 d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormTest2.resources
 d:\users\danie\documents\visual studio 2017\Projects\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormCicloApren.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\bin\Debug\PsicoteXt.exe
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\bin\Debug\PsicoteXt.pdb
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.csprojResolveAssemblyReference.cache
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormInicio.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormCicloApren.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormRespuesta.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormTest.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.FormTest2.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.Properties.Resources.resources
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.csproj.GenerateResource.Cache
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.exe
+F:\Users\Raul\Documents\Proyectos\HCP_project\PsicoteXt\PsicoteXt\obj\Debug\PsicoteXt.pdb

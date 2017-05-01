@@ -1,0 +1,12 @@
+Cuando aprendo...;Me gusta vivir sensaciones;Me gusta observar y escuchar;Me gusta pensar sobre ideas;Me gusta estar haciendo cosas
+Aprendo mejor cuando...;Confio en mi intuicion y en mis sentimientos;Escucho y observo cuidadosamente;Confio en el pensamiento logico;Trabajo duro para lograr hacer las cosas
+Cuando estoy aprendiendo...;Tengo fuertes sensaciones y reacciones;Soy callado y reservado;Tiendo a usar el razonamiento;Soy responsable con lo que hago
+Yo aprendo...;Sintiendo;Observando;Pensando;Haciendo
+Cuando aprendo...;Estoy abierto a nuevas experiencias;Observo todos los aspectos del asunto;Me gusta analizar las cosas, descomponerlas en sus partes;Me gusta probar e intentar hacer las cosas
+Cuando estoy aprendiendo...;Soy una persona intuitiva;Soy una persona observadora;Soy una persona logica;Soy una persona activa
+Yo aprendo mejor de...;La relacion con otras personas;La observacion;Las teorias racionales;La oportunidad de probar y practicar
+Cuando aprendo...;Me siento personalmente involucrado en las cosas;Me tomo mi tiempo antes de actuar;Me gustan las ideas y las teorias;Me gusta ver los resultados de mi trabajo
+Aprendo mejor cuando...;Confio en mis sentimientos;Confio en mis observaciones;Confio en mis ideas;Puedo probar por mi cuenta
+Cuando estoy aprendiendo...;Soy una persona receptiva;Soy una persona reservada;Soy una persona racional;Soy una persona responsable
+Cuando aprendo...;Me involucro;Me gusta observar;Evaluo las cosas;Me gusta ser activo
+Aprendo mejor cuando...;Soy receptivo y abierto;Soy cuidadoso;Analizo ideas;Soy practico;

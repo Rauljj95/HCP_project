@@ -11,6 +11,7 @@ namespace PsicoteXt
 {
     public partial class FormCicloApren : Form
     {
+        private Preguntas listaPreguntas;
         private int EC; //Experiencia Concreta
         private int OR; //Observación Reflexiva
         private int CA; //Conceptualización Abstracta
@@ -57,9 +58,11 @@ namespace PsicoteXt
             barraEA.Width = 666 * (int)pEA / 100;
         }
 
-        public FormCicloApren()
+        public FormCicloApren(Preguntas preguntasTest)
         {
             InitializeComponent();
+            listaPreguntas = new Preguntas();
+            listaPreguntas = preguntasTest;
         }
 
         private void FormCicloApren_Load(object sender, EventArgs e)
@@ -74,7 +77,7 @@ namespace PsicoteXt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormRespuesta respuesta = new FormRespuesta();
+            FormRespuesta respuesta = new FormRespuesta(listaPreguntas);
             respuesta.Show();
             this.Hide();
             respuesta.SetEC(EC);

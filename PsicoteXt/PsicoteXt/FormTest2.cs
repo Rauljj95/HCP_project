@@ -11,6 +11,7 @@ namespace PsicoteXt
 {
     public partial class FormTest2 : Form
     {
+        private Preguntas preguntasTest;
         private int EC; //Experiencia Concreta
         private int OR; //Observación Reflexiva
         private int CA; //Conceptualización Abstracta
@@ -70,6 +71,7 @@ namespace PsicoteXt
         {
             MismaPrioridadException MPEx;
             int filaActual = 0;
+            
             foreach (Control posiblesPaneles in this.flowLayoutPanel1.Controls) //Recorriendo los 6 paneles Principales
             {
                 if (posiblesPaneles is Panel)
@@ -86,6 +88,8 @@ namespace PsicoteXt
                             grupo = (GroupBox)posiblesGroupBox;
                             grupoActual++;
                             int aux = ObtenerNumMarcado(grupo, grupoActual);
+                            if (grupoActual <= 4 && filaActual <= 6)
+                                preguntasTest.ListaPreguntas[filaActual+5].Respuestas[grupoActual-1].Valor = aux;
                             if (valoresSinUsar[aux - 1])
                                 valoresSinUsar[aux - 1] = false;
                             else
@@ -100,10 +104,14 @@ namespace PsicoteXt
             }
         }
 
-        public FormTest2()
+        public FormTest2(Preguntas preguntasLeidas)
         {
             InitializeComponent();
+            preguntasTest = new Preguntas();
+            preguntasTest = preguntasLeidas;
         }
+
+
 
         private void buttonExitTest2_Click(object sender, EventArgs e)
         {
@@ -115,7 +123,7 @@ namespace PsicoteXt
             try
             {
                 ObtenerValoresEstilos();
-                FormCicloApren cicloApren = new FormCicloApren();
+                FormCicloApren cicloApren = new FormCicloApren(preguntasTest);
                 this.Hide();
                 cicloApren.SetEC(EC);
                 cicloApren.SetEA(EA);

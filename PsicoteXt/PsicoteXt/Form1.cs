@@ -11,9 +11,16 @@ namespace PsicoteXt
 {
     public partial class FormInicio : Form
     {
+        private Preguntas preguntasTest;
+
+        //public Preguntas PreguntasTest { get => preguntasTest; set => preguntasTest = value; }
+
         public FormInicio()
         {
             InitializeComponent();
+            preguntasTest = new Preguntas();
+
+            preguntasTest.LeerFichero("preguntas.txt");
         }
 
         private void FormInicio_Load(object sender, EventArgs e)
@@ -23,7 +30,7 @@ namespace PsicoteXt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormTest test = new FormTest();
+            FormTest test = new FormTest(preguntasTest);
             test.Show();
             this.Hide();
         }

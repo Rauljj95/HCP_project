@@ -11,6 +11,7 @@ namespace PsicoteXt
 {
     public partial class FormTest : Form
     {
+        private Preguntas preguntasTest;
         private int EC; //Experiencia Concreta
         private int OR; //Observación Reflexiva
         private int CA; //Conceptualización Abstracta
@@ -70,6 +71,8 @@ namespace PsicoteXt
                             grupo = (GroupBox)posiblesGroupBox;
                             grupoActual++;
                             int aux = ObtenerNumMarcado(grupo, grupoActual);
+                            if(grupoActual <= 4 && filaActual <= 12)
+                            preguntasTest.ListaPreguntas[filaActual-1].Respuestas[grupoActual-1].Valor = aux;
                             if (valoresSinUsar[aux - 1])
                                 valoresSinUsar[aux - 1] = false;
                             else
@@ -84,9 +87,11 @@ namespace PsicoteXt
             }
         }
 
-        public FormTest()
+        public FormTest(Preguntas preguntasLeidas)
         {
             InitializeComponent();
+            preguntasTest = new Preguntas();
+            preguntasTest = preguntasLeidas;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -119,7 +124,7 @@ namespace PsicoteXt
             try
             {
                 ObtenerValoresEstilos();
-                FormTest2 test2 = new FormTest2();
+                FormTest2 test2 = new FormTest2(preguntasTest);
                 this.Hide();
                 test2.Show();
                 test2.SetEC(EC);
